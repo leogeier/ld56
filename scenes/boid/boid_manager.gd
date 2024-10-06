@@ -17,6 +17,8 @@ var uniform_set: RID
 
 var buffer_initialized = false
 
+var targets = []
+
 func _compute_frame(boids):
 	var invocations = int(ceil(float(boids.size()) / WORKGROUP_SIZE))
 	var boid_bytes
@@ -91,3 +93,11 @@ func _initialize_buffer(input_bytes):
 
 func _update_buffer(input_bytes):
 	rd.buffer_update(buffer, 0, input_bytes.size(), input_bytes)
+
+#var pressed = false
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		#pressed = event.pressed
+		#targets = [get_tree().get_first_node_in_group(&"cursor").global_position] if pressed else []
+	#if event is InputEventMouseMotion and pressed:
+		#targets = [get_tree().get_first_node_in_group(&"cursor").global_position]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnw7sm8ufd5uj"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_j188q"]
+[ext_resource type="PackedScene" uid="uid://dadv4psta5i2c" path="res://scenes/boid/boid.tscn" id="1_uulb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dsoj"]
+size = Vector2(142, 1051)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cd7k"]
+radius = 131.381
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_j188q")
+
+[node name="Boid" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(587, 508)
+debug_draw = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-75, 487)
+shape = SubResource("RectangleShape2D_7dsoj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1078, 499)
+shape = SubResource("RectangleShape2D_7dsoj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(503, -82)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7dsoj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(513, 1078)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7dsoj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1440, -93)
+shape = SubResource("CircleShape2D_1cd7k")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx8pmn84h4hcs"]
+
+[ext_resource type="Script" path="res://scenes/cursor/cursor.gd" id="1_0r1bj"]
+[ext_resource type="Texture2D" uid="uid://cdkfiqlhfql2l" path="res://assets/circle-dashed-stroke.png" id="1_uh1i8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8j7jh"]
+radius = 390.014
+
+[node name="Cursor" type="Node2D" groups=["cursor"]]
+script = ExtResource("1_0r1bj")
+
+[node name="Circle" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("1_uh1i8")
+
+[node name="Area2D" type="Area2D" parent="Circle"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circle/Area2D"]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_8j7jh")

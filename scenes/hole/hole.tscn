@@ -1,0 +1,88 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7nlyncfbqk17"]
+
+[ext_resource type="Script" path="res://scenes/hole/hole.gd" id="1_dp5hs"]
+[ext_resource type="Texture2D" uid="uid://tafnvl3th7ab" path="res://assets/dot.png" id="1_twqc8"]
+[ext_resource type="Texture2D" uid="uid://biaubdbej6fxb" path="res://assets/frog.png" id="2_ysl6g"]
+[ext_resource type="AudioStream" uid="uid://dcp8nh6g4e8xo" path="res://assets/nom/nom1.wav" id="3_8o30y"]
+[ext_resource type="AudioStream" uid="uid://dcvwolu0axvr3" path="res://assets/nom/nom2.wav" id="4_oojtm"]
+[ext_resource type="AudioStream" uid="uid://bmdqyongjnmwr" path="res://assets/nom/nom3.wav" id="5_ereiu"]
+[ext_resource type="AudioStream" uid="uid://bj3tx0f2r0r" path="res://assets/nom/nom4.wav" id="6_wn3nv"]
+[ext_resource type="AudioStream" uid="uid://dcpi3oiihghgh" path="res://assets/nom/nom5.wav" id="7_o8v33"]
+[ext_resource type="AudioStream" uid="uid://g5760rbb2cs3" path="res://assets/nom/nom6.wav" id="8_fm4ye"]
+[ext_resource type="AudioStream" uid="uid://bl85d8e0pmxl6" path="res://assets/nom/nom7.wav" id="9_ckp8i"]
+[ext_resource type="AudioStream" uid="uid://l0jwhk1ceb6q" path="res://assets/nom/nom8.wav" id="10_da2vq"]
+[ext_resource type="AudioStream" uid="uid://dthnlj320ev56" path="res://assets/nom/nom9.wav" id="11_1wnko"]
+[ext_resource type="AudioStream" uid="uid://7cfwb74tmo6g" path="res://assets/nom/nom10.wav" id="12_bu3ut"]
+[ext_resource type="AudioStream" uid="uid://c1p4442kb24xr" path="res://assets/nom/nom11.wav" id="13_cd5kf"]
+[ext_resource type="AudioStream" uid="uid://dyktglbs00vta" path="res://assets/nom/nom12.wav" id="14_p2y81"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfp4q"]
+radius = 82.0
+
+[node name="Hole" type="Node2D"]
+script = ExtResource("1_dp5hs")
+
+[node name="Frog" type="Sprite2D" parent="."]
+position = Vector2(-1, 19)
+texture = ExtResource("2_ysl6g")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(0.40966, 0.253429)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.0539, 0.517407)
+shape = SubResource("CircleShape2D_cfp4q")
+
+[node name="Noms" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("3_8o30y")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("4_oojtm")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("5_ereiu")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("6_wn3nv")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("7_o8v33")
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("8_fm4ye")
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("9_ckp8i")
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("10_da2vq")
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("11_1wnko")
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("12_bu3ut")
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("13_cd5kf")
+
+[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="Noms"]
+stream = ExtResource("14_p2y81")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.052
+one_shot = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.217389, 0.219991, 0.287918, 1)
+z_index = -1
+position = Vector2(4, 81)
+scale = Vector2(17.9572, 4.34594)
+texture = ExtResource("1_twqc8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

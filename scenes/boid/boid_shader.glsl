@@ -37,7 +37,7 @@ void main() {
 	BOID(id).flock_center = BOID(id).position;
 	
 	for (int other_id = 0; other_id < data_buffer.num_boids; ++other_id) {
-		if (id != other_id) {
+		if (id != other_id && BOID(other_id).is_active > 0) {
 			vec2 offset = BOID(other_id).position - BOID(id).position;
 			float squared_dist = dot(offset, offset);
 			

@@ -1,38 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnw7sm8ufd5uj"]
+[gd_scene load_steps=8 format=3 uid="uid://dnw7sm8ufd5uj"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_j188q"]
 [ext_resource type="PackedScene" uid="uid://dadv4psta5i2c" path="res://scenes/boid/boid.tscn" id="1_uulb8"]
+[ext_resource type="AudioStream" uid="uid://e2babg756ew2" path="res://assets/buzzing.wav" id="3_6mwit"]
+[ext_resource type="PackedScene" uid="uid://dx8pmn84h4hcs" path="res://scenes/cursor/cursor.tscn" id="4_ijr56"]
+[ext_resource type="PackedScene" uid="uid://b7nlyncfbqk17" path="res://scenes/hole/hole.tscn" id="5_bpb7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dsoj"]
+size = Vector2(142, 1051)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cd7k"]
+radius = 131.381
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_j188q")
 
 [node name="Boid" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(510, 302)
-debug_draw = true
+position = Vector2(587, 508)
 
-[node name="Boid2" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(533, 304)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Boid3" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(551, 294)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-75, 487)
+shape = SubResource("RectangleShape2D_7dsoj")
 
-[node name="Boid4" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(527, 270)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1078, 499)
+shape = SubResource("RectangleShape2D_7dsoj")
 
-[node name="Boid9" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(565, 247)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(503, -82)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7dsoj")
 
-[node name="Boid10" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(595, 277)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(513, 1078)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7dsoj")
 
-[node name="Boid5" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(502, 269)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
-[node name="Boid6" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(479, 279)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1442, 287)
+shape = SubResource("CircleShape2D_1cd7k")
 
-[node name="Boid7" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(476, 314)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6mwit")
+volume_db = -14.991
+autoplay = true
 
-[node name="Boid8" parent="." instance=ExtResource("1_uulb8")]
-position = Vector2(525, 334)
+[node name="Cursor" parent="." instance=ExtResource("4_ijr56")]
+position = Vector2(-424, 385)
+circle_color = Color(0.449714, 0.164679, 0.137449, 1)
+
+[node name="Hole" parent="." instance=ExtResource("5_bpb7h")]
+position = Vector2(511, 518)
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = -3.0
+offset_right = 291.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 47
+text = "00:00:0.0000"

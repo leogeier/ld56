@@ -1,20 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://dadv4psta5i2c"]
+[gd_scene load_steps=10 format=3 uid="uid://dadv4psta5i2c"]
 
-[ext_resource type="Texture2D" uid="uid://crceun3nc4glh" path="res://icon.svg" id="1_168i5"]
 [ext_resource type="Script" path="res://scenes/boid/boid.gd" id="1_u85l6"]
 [ext_resource type="Resource" uid="uid://i1ck81fuw4s8" path="res://scenes/boid/boid_params.tres" id="2_vxk0a"]
+[ext_resource type="Texture2D" uid="uid://dsd6kt25f28aj" path="res://assets/triangle1.png" id="3_e1d2f"]
+[ext_resource type="Texture2D" uid="uid://bycndmu46nn7w" path="res://assets/bug/slice1.png" id="4_h6si8"]
+[ext_resource type="Texture2D" uid="uid://by2sh4lum2x4x" path="res://assets/bug/slice2.png" id="5_37rrs"]
+[ext_resource type="Texture2D" uid="uid://bthttntme6fph" path="res://assets/bug/slice3.png" id="6_nwefr"]
+[ext_resource type="Texture2D" uid="uid://tafnvl3th7ab" path="res://assets/dot.png" id="7_78oa4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq6om"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_otdpr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i71fs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h6si8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_37rrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nwefr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_37rrs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
 
 [node name="Boid" type="CharacterBody2D" groups=["boid"]]
-collision_layer = 0
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_u85l6")
 params = ExtResource("2_vxk0a")
-debug_draw = null
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.170178, 0.0613449)
-texture = ExtResource("1_168i5")
+[node name="Headed" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Headed"]
+visible = false
+scale = Vector2(0.0416208, 0.0204279)
+texture = ExtResource("3_e1d2f")
+
+[node name="RayCast2D" type="RayCast2D" parent="Headed"]
+unique_name_in_owner = true
+target_position = Vector2(100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_aq6om")
+shape = SubResource("CircleShape2D_otdpr")
+
+[node name="BugSprite" type="AnimatedSprite2D" parent="."]
+rotation = 0.91
+sprite_frames = SubResource("SpriteFrames_i71fs")
+frame_progress = 0.401654
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.217389, 0.219991, 0.287918, 1)
+z_index = -1
+position = Vector2(6, 33)
+scale = Vector2(1.29403, 0.565575)
+texture = ExtResource("7_78oa4")

@@ -4,10 +4,21 @@
 
 [resource]
 script = ExtResource("1_d5jek")
-speed = 200.0
-separation_strength = 0.6
-alignment_strength = 0.6
-cohesion_strength = 0.6
-max_steer_force = 54.5
-view_radius = 250.0
+max_speed = 338.614
+min_speed = 257.92
+separation_strength = 2.3
+alignment_strength = 0.8
+cohesion_strength = 1.8
+avoid_collision_strength = 5.0
+deviation_strength = 1.0
+avoid_edge_strength = 5.0
+target_strength = 8.0
+max_steer_force = 3.5
+view_radius = 118.8
 avoid_radius = 50.0
+max_avoidance_angle = 90.0
+avoidance_angle_steps = 4
+avoid_edge_distance = 84
+steer_strength_variance = 0.26
+max_bank_amount = 0.91
+size_variance = 0.1
