@@ -26,5 +26,6 @@ func _physics_process(delta: float) -> void:
 		var seconds = (time / 1000) % 60
 		var milliseconds = time % 1000
 		$TimeLabel.text = "%02d:%02d.%d" % [minutes, seconds, milliseconds]
-	if not boids_remain and $AudioStreamPlayer.playing:
+	if not boids_remain:
+		$Hole.rotate(0.1)
 		$AudioStreamPlayer.stop()

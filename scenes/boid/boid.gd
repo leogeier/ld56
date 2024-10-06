@@ -66,9 +66,8 @@ func _physics_process(delta):
 		acceleration += collision_avoidance_force
 	
 	var cursor = get_tree().get_first_node_in_group(&"cursor")
-	if cursor:
-		if cursor.contains(self):
-			acceleration += steer_towards(global_position.direction_to(cursor.global_position)) * params.target_strength
+	if cursor and cursor.pulling and cursor.contains(self):
+		acceleration += steer_towards(global_position.direction_to(cursor.global_position)) * params.target_strength
 	#for target in BoidManager.targets:
 		#if global_position.distance_squared_to(target) < 90000:
 			#acceleration += steer_towards(global_position.direction_to(target)) * 5
