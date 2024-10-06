@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BoidParameters" load_steps=2 format=3 uid="uid://i1ck81fuw4s8"]
+
+[ext_resource type="Script" path="res://scenes/boid/boid_parameters.gd" id="1_d5jek"]
+
+[resource]
+script = ExtResource("1_d5jek")
+speed = 200.0
+separation_strength = 0.6
+alignment_strength = 0.6
+cohesion_strength = 0.6
+max_steer_force = 54.5
+view_radius = 250.0
+avoid_radius = 50.0

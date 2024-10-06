@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://dnw7sm8ufd5uj"]
+[gd_scene load_steps=3 format=3 uid="uid://dnw7sm8ufd5uj"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_j188q"]
+[ext_resource type="PackedScene" uid="uid://dadv4psta5i2c" path="res://scenes/boid/boid.tscn" id="1_uulb8"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_j188q")
+
+[node name="Boid" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(510, 302)
+debug_draw = true
+
+[node name="Boid2" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(533, 304)
+
+[node name="Boid3" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(551, 294)
+
+[node name="Boid4" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(527, 270)
+
+[node name="Boid9" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(565, 247)
+
+[node name="Boid10" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(595, 277)
+
+[node name="Boid5" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(502, 269)
+
+[node name="Boid6" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(479, 279)
+
+[node name="Boid7" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(476, 314)
+
+[node name="Boid8" parent="." instance=ExtResource("1_uulb8")]
+position = Vector2(525, 334)
