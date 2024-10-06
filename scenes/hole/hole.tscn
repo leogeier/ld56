@@ -1,7 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b7nlyncfbqk17"]
 
 [ext_resource type="Script" path="res://scenes/hole/hole.gd" id="1_dp5hs"]
-[ext_resource type="Texture2D" uid="uid://tafnvl3th7ab" path="res://assets/dot.png" id="1_twqc8"]
 [ext_resource type="Texture2D" uid="uid://biaubdbej6fxb" path="res://assets/frog.png" id="2_ysl6g"]
 [ext_resource type="AudioStream" uid="uid://dcp8nh6g4e8xo" path="res://assets/nom/nom1.wav" id="3_8o30y"]
 [ext_resource type="AudioStream" uid="uid://dcvwolu0axvr3" path="res://assets/nom/nom2.wav" id="4_oojtm"]
@@ -15,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://7cfwb74tmo6g" path="res://assets/nom/nom10.wav" id="12_bu3ut"]
 [ext_resource type="AudioStream" uid="uid://c1p4442kb24xr" path="res://assets/nom/nom11.wav" id="13_cd5kf"]
 [ext_resource type="AudioStream" uid="uid://dyktglbs00vta" path="res://assets/nom/nom12.wav" id="14_p2y81"]
+[ext_resource type="Texture2D" uid="uid://nqxf1f44o5lt" path="res://assets/circle2.png" id="15_86b3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfp4q"]
 radius = 82.0
@@ -81,8 +81,8 @@ one_shot = true
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.217389, 0.219991, 0.287918, 1)
 z_index = -1
-position = Vector2(4, 81)
-scale = Vector2(17.9572, 4.34594)
-texture = ExtResource("1_twqc8")
+position = Vector2(5, 86)
+scale = Vector2(0.381, 0.118)
+texture = ExtResource("15_86b3o")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
